@@ -1,12 +1,179 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baker AI Next</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#222;
+}
+
+header{
+background:white;
+padding:18px;
+font-size:24px;
+font-weight:bold;
+box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+#app{
+padding:20px;
+}
+
+.screen{
+display:none;
+}
+
+.screen.active{
+display:block;
+}
+
+.card{
+background:white;
+border-radius:16px;
+padding:20px;
+margin-bottom:16px;
+cursor:pointer;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+transition:transform .15s;
+}
+
+.card:hover{
+transform:translateY(-2px);
+}
+
+.card h2{
+margin-bottom:8px;
+}
+
+.backBtn{
+margin-bottom:16px;
+padding:10px 14px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.placeholder{
+background:white;
+padding:20px;
+border-radius:16px;
+}
+</style>
+
 </head>
+
 <body>
 
-<h1>🍰 Baker AI Next</h1>
-<p>Version 9 Development Build</p>
+<header>🍰 Baker AI Next</header>
+
+<div id="app">
+
+<!-- HOME -->
+
+<div id="home" class="screen active">
+
+<div class="card" onclick="openScreen('chat')">
+<h2>👨‍🍳 Ask Baker AI</h2>
+<p>Talk to your baking assistant.</p>
+</div>
+
+<div class="card" onclick="openScreen('generator')">
+<h2>🍪 Recipe Generator</h2>
+<p>Create recipes automatically.</p>
+</div>
+
+<div class="card" onclick="openScreen('lab')">
+<h2>📊 Baking Lab</h2>
+<p>Analyze sweetness, moisture and texture.</p>
+</div>
+
+<div class="card" onclick="openScreen('guide')">
+<h2>📚 Sweetener Guide</h2>
+<p>Learn about monkfruit, allulose and more.</p>
+</div>
+
+<div class="card" onclick="openScreen('settings')">
+<h2>⚙️ Settings</h2>
+<p>Units, preferences and future options.</p>
+</div>
+
+</div>
+
+<!-- CHAT -->
+
+<div id="chat" class="screen">
+<button class="backBtn" onclick="goHome()">← Back</button>
+<div class="placeholder">
+<h2>👨‍🍳 Baker AI Chat</h2>
+<p>Coming next phase.</p>
+</div>
+</div>
+
+<!-- GENERATOR -->
+
+<div id="generator" class="screen">
+<button class="backBtn" onclick="goHome()">← Back</button>
+<div class="placeholder">
+<h2>🍪 Recipe Generator</h2>
+<p>Coming next phase.</p>
+</div>
+</div>
+
+<!-- LAB -->
+
+<div id="lab" class="screen">
+<button class="backBtn" onclick="goHome()">← Back</button>
+<div class="placeholder">
+<h2>📊 Baking Lab</h2>
+<p>Coming next phase.</p>
+</div>
+</div>
+
+<!-- GUIDE -->
+
+<div id="guide" class="screen">
+<button class="backBtn" onclick="goHome()">← Back</button>
+<div class="placeholder">
+<h2>📚 Sweetener Guide</h2>
+<p>Coming next phase.</p>
+</div>
+</div>
+
+<!-- SETTINGS -->
+
+<div id="settings" class="screen">
+<button class="backBtn" onclick="goHome()">← Back</button>
+<div class="placeholder">
+<h2>⚙️ Settings</h2>
+<p>Coming next phase.</p>
+</div>
+</div>
+
+</div>
+
+<script>
+function openScreen(id){
+document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function goHome(){
+document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+document.getElementById("home").classList.add("active");
+}
+</script>
 
 </body>
 </html>
